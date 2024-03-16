@@ -7,14 +7,17 @@ import { HomeComponent } from './pages/home/home.component';
 import { AuthGuard } from './services/guard/auth-guard.guard';
 import { AddTaskComponent } from './pages/add-task/add-task.component';
 import { UserAuthGuard } from './services/guard/user-auth.guard';
+import { SiteListComponent } from './sites/site-list/site-list.component';
 
 const routes: Routes = [
-  { path: '', component: HomeComponent },
+  { path: '', component: SiteListComponent },
   { path: 'login', component: UserLoginComponent, canActivate: [AuthGuard] },
   { path: 'register', component: UserRegisterComponent, canActivate: [AuthGuard] },
   { path: 'dashboard', component: DashboardComponent, canActivate: [UserAuthGuard] },
   { path: "add-task", component: AddTaskComponent, canActivate: [UserAuthGuard] },
-  { path: "update-task/:id", component: AddTaskComponent, canActivate: [UserAuthGuard] }
+  { path: "update-task/:id", component: AddTaskComponent, canActivate: [UserAuthGuard] },
+  { path: 'sites', component: SiteListComponent },
+
 ];
 
 @NgModule({

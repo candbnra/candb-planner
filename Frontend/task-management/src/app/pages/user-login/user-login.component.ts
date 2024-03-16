@@ -4,8 +4,8 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import Swal from 'sweetalert2';
 import { Router } from '@angular/router';
 import { Login } from '../../models/login';
-import { LoginService } from 'src/app/services/login.service';
-import { User } from 'src/app/models/User';
+import { LoginService } from '../../services/login.service';
+import { User } from '../../models/User';
 
 @Component({
   selector: 'app-user-login',
@@ -72,7 +72,7 @@ export class UserLoginComponent implements OnInit {
       this.setUser();
       this.loginService.userLogin();
       console.log(user);
-      this.router.navigate(['dashboard']);
+      this.router.navigate(['site-list']);
     });
   }
 

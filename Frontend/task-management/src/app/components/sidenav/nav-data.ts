@@ -6,12 +6,12 @@ export const beforeLoginData: INavbarData[] = [
     icon: 'home',
     label: 'Home',
   },
-  {
-    routeLink: 'register',
-    icon: 'person_add',
-    label: 'Sign Up',
-    open: true,
-  },
+  // {
+  //   routeLink: 'register',
+  //   icon: 'person_add',
+  //   label: 'Sign Up',
+  //   open: true,
+  // },
   {
     routeLink: 'login',
     icon: 'login',
@@ -21,14 +21,14 @@ export const beforeLoginData: INavbarData[] = [
 
 export const afterLoginData: INavbarData[] = [
   {
-    routeLink: '/dashboard',
+    routeLink: '/site-list',
     icon: 'home',
-    label: 'Home',
+    label: 'Sites',
   },
-  {
-    routeLink: '/add-task',
-    icon: 'add_task',
-    label: 'Add New Task',
-  },
+  // {
+  //   routeLink: '/add-task',
+  //   icon: 'add_task',
+  //   label: 'Add New Task',
+  // },
 
 ];

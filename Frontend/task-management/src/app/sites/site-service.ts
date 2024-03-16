@@ -12,43 +12,36 @@ export class SiteService {
   entityUrl = this.REST_API_URL + 'sites_g2r';
   workstreamEntityUrl = this.REST_API_URL + 'workstreams';
 
-  private readonly handlerError: HandleError;
-
-  constructor(private http: HttpClient, private httpErrorHandler: HttpErrorHandler) {
-    this.handlerError = httpErrorHandler.createHandleError('SiteService');
+  constructor(private http: HttpClient) { 
+    this.http = http;
   }
 
   getSites(): Observable<Site[]> {
     console.log("getSites");
     console.log("URL:" + this.entityUrl);
     return this.http
-      .get<Site[]>(this.entityUrl)
-      .pipe(catchError(this.handlerError('getSites', [])));
+      .get<Site[]>(this.entityUrl);
   }
 
   getSiteById(siteId: number): Observable<Site> {
     return this.http
-      .get<Site>(this.entityUrl + '/' + siteId)
-      .pipe(catchError(this.handlerError('getSiteById', {} as Site)));
+      .get<Site>(this.entityUrl + '/' + siteId);
   }
 
   addSite(site: Site): Observable<Site> {
     return this.http
-      .post<Site>(this.entityUrl, site)
-      .pipe(catchError(this.handlerError('addSite', site)));
+      .post<Site>(this.entityUrl, site);
   }
 
 
   updateSite(siteId: string, site: Site): Observable<{}> {
     return this.http
-      .put<Site>(this.entityUrl + '/' + siteId, site)
-      .pipe(catchError(this.handlerError('updateSite', site)));
+      .put<Site>(this.entityUrl + '/' + siteId, site);
   }
 
   deleteSite(siteId: string): Observable<{}> {
     return this.http
-      .delete<Site>(this.entityUrl + '/' + siteId)
-      .pipe(catchError(this.handlerError('deleteSite', [siteId])));
+      .delete<Site>(this.entityUrl + '/' + siteId);
   }
   searchSites(name: string): Observable<Site[]> {
     let url = this.entityUrl + '/searchByName';
@@ -59,8 +52,7 @@ export class SiteService {
     console.log("searchSites by name=");
     console.log(url);
     return this.http
-      .get<Site[]>(url)
-      .pipe(catchError(this.handlerError('searcSites', [])));
+      .get<Site[]>(url);
   }
 
   searchSitesByParams(filterParams: Site): Observable<Site[]> {
@@ -104,7 +96,6 @@ export class SiteService {
     }
     console.log("URL="+url);
     return this.http
-      .get<Site[]>(url)
-      .pipe(catchError(this.handlerError('searchByParams', [])));
+      .get<Site[]>(url);
   }
 }

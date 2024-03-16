@@ -1,12 +1,12 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { TaskService } from 'src/app/services/task.service';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatSort, MatSortable, Sort } from '@angular/material/sort';
 import { MatCheckboxChange } from '@angular/material/checkbox';
 import { MatDatepickerInputEvent } from '@angular/material/datepicker';
 import Swal from 'sweetalert2';
 import { Route, Router } from '@angular/router';
-import { Task } from 'src/app/models/Task';
+import { Task } from '../../models/Task';
+import { TaskService } from '../../services/task.service';
 
 @Component({
   selector: 'app-dashboard',

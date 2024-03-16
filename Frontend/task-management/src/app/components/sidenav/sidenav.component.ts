@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
-import { LoginService } from 'src/app/services/login.service';
 import { INavbarData, fadeInOut } from './helper';
 import { beforeLoginData, afterLoginData } from './nav-data';
 import { Router } from '@angular/router';
 import { trigger, transition, animate, keyframes, style } from '@angular/animations';
 import Swal from 'sweetalert2';
+import { LoginService } from '../../services/login.service';
 
 @Component({
   selector: 'app-sidenav',

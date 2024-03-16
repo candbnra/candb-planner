@@ -34,6 +34,9 @@ import { MatTableModule } from '@angular/material/table';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatMomentDateModule } from '@angular/material-moment-adapter';
+import { SiteListComponent } from './sites/site-list/site-list.component';
+import { SitesModule } from './sites/sites.module';
+import { SitesRoutingModule } from './sites/sites-routing.module';
 
 @NgModule({
   declarations: [
@@ -43,7 +46,7 @@ import { MatMomentDateModule } from '@angular/material-moment-adapter';
     UserLoginComponent,
     DashboardComponent,
     HomeComponent,
-    AddTaskComponent,
+    AddTaskComponent
   ],
   imports: [
     BrowserModule,
@@ -75,7 +78,9 @@ import { MatMomentDateModule } from '@angular/material-moment-adapter';
     MatTableModule,
     MatPaginatorModule,
     MatCheckboxModule,
-    MatMomentDateModule
+    MatMomentDateModule,
+    SitesModule,
+    SitesRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

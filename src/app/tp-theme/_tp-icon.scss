@@ -1,0 +1,8 @@
+$tp-icon: icon-theme(
+	$schema: $dark-schema,
+	$color: color($tp-palette, 'secondary')
+);
+
+$tp-light-icon: icon-theme(
+	$color: color($tp-light-palette, 'secondary')
+);

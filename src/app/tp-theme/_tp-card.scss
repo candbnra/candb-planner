@@ -1,0 +1,10 @@
+$tp-card: card-theme(
+    $schema: $dark-schema,
+    $border-radius: 16px
+);
+
+$tp-light-card: card-theme(
+    $resting-shadow: none,
+    $hover-shadow: none,
+    $outline-color: #ddd
+);

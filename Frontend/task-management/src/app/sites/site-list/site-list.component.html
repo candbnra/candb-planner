@@ -1,0 +1,98 @@
+<p>site-list.component.html works !</p>
+<!--div class="container-fluid">
+    <div class="container xd-container">
+      <h2>Sites</h2>
+  
+      <form method="get"
+            class="form-horizontal" id="search-site-form">
+        <div class="form-group">
+          <div class="control-group" id="nameGroup">
+            <label class="col-sm-2 control-label">Nom du site </label>
+            <div class="col-sm-10">
+              <input class="form-control" size="10"
+                     maxlength="20" id="name" name="name" [(ngModel)]="siteFilter.name" value=""/> <span class="help-inline"></span>
+            </div>
+          </div>
+          <div class="control-group" id="codeGroup">
+            <label class="col-sm-2 control-label">Code G2R</label>
+            <div class="col-sm-10">
+              <input class="form-control" size="10"
+                     maxlength="20" id="code" name="code" [(ngModel)]="siteFilter.code" value=""/> <span class="help-inline"></span>
+            </div>
+          </div>
+          <div class="control-group" id="regionroup">
+            <label class="col-sm-2 control-label">Region</label>
+            <div class="col-sm-10">
+              <input class="form-control" size="10"
+                     maxlength="20" id="region" name="region" [(ngModel)]="siteFilter.region" value=""/> <span class="help-inline"></span>
+            </div>
+          </div>
+          <div class="control-group" id="zoneGroup">
+            <label class="col-sm-2 control-label">Zone</label>
+            <div class="col-sm-10">
+              <input class="form-control" size="10"
+                     maxlength="20" id="zone" name="zone" [(ngModel)]="siteFilter.zone" value=""/> <span class="help-inline"></span>
+            </div>
+          </div>
+          <div class="control-group" id="areaGroup">
+            <label class="col-sm-2 control-label">Plaque de déploiement</label>
+            <div class="col-sm-10">
+              <input class="form-control" size="10"
+                     maxlength="20" id="area" name="area" [(ngModel)]="siteFilter.area" value=""/> <span class="help-inline"></span>
+            </div>
+          </div>
+          <div class="control-group" id="moeProjetGroup">
+            <label class="col-sm-2 control-label">MOE Projet</label>
+            <div class="col-sm-10">
+              <input class="form-control" size="10"
+                     maxlength="20" id="moeProjet" name="moeProjet" [(ngModel)]="siteFilter.moeProjet" value=""/> <span class="help-inline"></span>
+            </div>
+          </div>
+          <div class="control-group" id="porteurProspectionGroup">
+            <label class="col-sm-2 control-label">Porteur Prospection</label>
+            <div class="col-sm-10">
+              <input class="form-control" size="10"
+                     maxlength="20" id="porteurProspection" name="porteurProspection" [(ngModel)]="siteFilter.porteurProspection" value=""/> <span class="help-inline"></span>
+            </div>
+          </div>
+       
+        </div>
+        <div class="form-group">
+          <div class="col-sm-offset-2 col-sm-10">
+            <button type="submit" class="btn btn-default" (click)="searchByParams(siteFilter)">Recherche
+ Site</button>
+          </div>
+        </div>
+  
+      </form>
+  
+    <div *ngIf="!sites">Aucun site trouvé"</div>
+      <div class="table-responsive" id="sitesTable"  *ngIf="sites">
+        <table class="table table-striped">
+          <thead>
+          <tr>
+            <th>Code G2R</th>
+            <th>Name</th>
+            <th>Region</th>
+            <th>Zone</th>
+            <th>Plaque de déploiement</th>
+          </tr>
+          </thead>
+  
+          <tbody>
+          <tr *ngFor="let site of sites">
+            <td>{{ site.code }}</td>
+            <td class="siteName"><a routerLink="/sites/{{site.id}}" routerLinkActive="active"
+                                         (click)="onSelect(site)">{{ site.name }}</a></td>
+            <td>{{ site.region }}</td>
+            <td>{{ site.zone }}</td>
+            <td>{{ site.area }}</td>
+          </tr>
+          </tbody>
+        </table>
+        <div>
+          <button *ngIf="isSitesDataReceived" class="btn btn-default" (click)="addSite()">AddSite</button>
+        </div>
+      </div>
+    </div>
+  </div-->

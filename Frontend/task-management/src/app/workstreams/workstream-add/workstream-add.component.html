@@ -1,0 +1,64 @@
+<p>workstream-add works!</p>
+<div class="container-fluid">
+    <div class="container xd-container">
+      <h2>
+        New Workstream
+      </h2>
+      <form (ngSubmit)="onSubmit(workstreamForm.value)" #workstreamForm="ngForm" class="form-horizontal">
+        <div class="form-group" hidden="true">
+          <input type="text" hidden="true" class="form-control" id="id" [(ngModel)]="workstream.id" name="id"/>
+        </div>
+        <div class="form-group has-feedback" [class.has-success]="code.dirty && code.valid" [class.has-error]="code.dirty &&  !code.valid">
+          <label for="code" class="col-sm-2 control-label">Code</label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control" id="code" [(ngModel)]="workstream.code" minlength="2" required name="code" #code="ngModel"/>
+            <span class="glyphicon form-control-feedback" [class.glyphicon-ok]="code.valid" [class.glyphicon-remove]="!code.valid" aria-hidden="true"></span>
+            <span class="help-block" *ngIf="code.dirty && code.hasError('required')">Code is required</span>
+            <span class="help-block" *ngIf="code.dirty && code.hasError('minlength')">Code must be at least 2 characters long</span>
+          </div>
+        </div>
+        <div class="form-group has-feedback" [class.has-success]="name.dirty && name.valid" [class.has-error]="name.dirty && !name.valid">
+          <label for="name" class="col-sm-2 control-label">Name</label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control" id="name" [(ngModel)]="workstream.name" name="name" minlength="2" required #name="ngModel"/>
+            <span class="glyphicon form-control-feedback" [class.glyphicon-ok]="name.valid" [class.glyphicon-remove]="!name.valid" aria-hidden="true"></span>
+            <span class="help-block" *ngIf="name.dirty && name.hasError('required')">Name is required</span>
+            <span class="help-block" *ngIf="name.dirty && name.hasError('minlength')">Name must be at least 2 characters long</span>
+          </div>
+        </div>
+       
+        <div class="form-group has-feedback" [class.has-success]="status.dirty && status.valid" [class.has-error]="status.dirty && !status.valid">
+          <label for="status" class="col-sm-2 control-label">Status</label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control" id="status" [(ngModel)]="workstream.status" name="status" minlength="2" required #status="ngModel"/>
+            <span class="glyphicon form-control-feedback" [class.glyphicon-ok]="status.valid" [class.glyphicon-remove]="!status.valid" aria-hidden="true"></span>
+            <span class="help-block" *ngIf="status.dirty && status.hasError('required')">Status is required</span>
+            <span class="help-block" *ngIf="status.dirty && status.hasError('minlength')">Status must be at least 2 characters long</span>
+          </div>
+        </div>
+        <div class="form-group has-feedback" [class.has-success]="startDate.dirty && startDate.valid" [class.has-error]="startDate.dirty && !startDate.valid">
+          <label for="startDate" class="col-sm-2 control-label">Start Date</label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control" id="startDate" [(ngModel)]="workstream.startDate" name="startDate" minlength="2" required #startDate="ngModel"/>
+            <span class="glyphicon form-control-feedback" [class.glyphicon-ok]="startDate.valid" [class.glyphicon-remove]="!startDate.valid" aria-hidden="true"></span>
+                     <span class="help-block" *ngIf="startDate.dirty && startDate.hasError('minlength')">Start Date must be at least 2 characters long</span>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="endDate" class="col-sm-2 control-label">End jjDate</label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control" id="endDate" [(ngModel)]="workstream.endDate" name="endDate" #endDate="ngModel"/>
+            </div>
+        </div>
+       
+       
+        <div class="form-group">
+          <div class="col-sm-offset-2 col-sm-10">
+            <button class="btn btn-default" type="button" (click)="gotoWorkstreamsList()">Back</button>
+            <button class="btn btn-default" type="submit">Add Workstream</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+  

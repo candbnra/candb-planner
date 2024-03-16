@@ -1,0 +1,45 @@
+<div class="container-fluid">
+    <div class="container xd-container">
+  
+      <h2>Workstream Information</h2>
+  
+  
+      <table class="table table-striped">
+      <tr>
+          <th>Code</th>
+          <td>{{ workstream.code }}</td>
+        </tr>
+        <tr>
+            <th><b>Name</b></th>
+            <td>{{ workstream.name }}</td>
+          </tr>  
+        <tr>
+          <th>Status</th>
+          <td>{{ workstream.status }}</td>
+        </tr>
+        <tr>
+            <th>startDate</th>
+            <td>{{ workstream.startDate }}</td>
+          </tr>
+          <tr>
+            <th>endDate</th>
+            <td>{{ workstream.endDate }}</td>
+          </tr>
+      </table>
+  
+      <button class="btn btn-default" (click)="gotoWorkstreamsList()">Back</button>
+      <button class="btn btn-default" (click)="editWorkstream()">Edit Workstream</button>
+      <!--button class="btn btn-default" (click)="addPet(owner)">Add New Team</button-->
+  
+      <br />
+      <br />
+      <br />
+      <h2>Teams</h2>
+  
+      <table class="table table-striped">
+        <tr>
+          <!--app-team-list *ngFor="let team of workstream.teams" [team]="team"></app-team-list-->
+        </tr>
+      </table>
+    </div>
+  </div>

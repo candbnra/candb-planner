@@ -1,0 +1,56 @@
+<div class="container-fluid">
+    <div class="container xd-container">
+      <h2>Workstreams</h2>
+  
+      <form method="get"
+            class="form-horizontal" id="search-workstream-form">
+        <div class="form-group">
+          <div class="control-group" id="nameGroup">
+            <label class="col-sm-2 control-label">Name </label>
+            <div class="col-sm-10">
+              <input class="form-control" size="30"
+                     maxlength="80" id="name" name="name" [(ngModel)]="name" value=""/> <span class="help-inline"></span>
+            </div>
+          </div>
+          
+        </div>
+        <div class="form-group">
+          <div class="col-sm-offset-2 col-sm-10">
+            <button type="submit" class="btn btn-default" (click)="searchByName(name)">Find
+              Workstream</button>
+          </div>
+        </div>
+  
+      </form>
+  
+      <div *ngIf="!workstreams">No workstreams with name starting with "{{name}}"</div>
+      <div class="table-responsive" id="workstreamsTable"  *ngIf="workstreams">
+        <table class="table table-striped">
+          <thead>
+          <tr>
+            <th>Code G2R</th>
+            <th>Code Activite</th>
+            <th>Status</th>
+            <th>Start Date</th>
+            <th>End Date</th>
+  
+          </tr>
+          </thead>
+  
+          <tbody>
+          <tr *ngFor="let workstream of workstreams">
+            <td class="workstreamName"><a routerLink="/workstreams/{{workstream.id}}" routerLinkActive="active"
+                                         (click)="onSelect(workstream)">{{ workstream.codeG2r }}</a></td>
+           <td>{{ workstream.codeActivite }}</td>
+           <td>{{ workstream.status }}</td>
+            <td>{{ workstream.startDate }}</td>
+            <td>{{ workstream.endDate }}</td>
+          </tr>
+          </tbody>
+        </table>
+        <div>
+          <button *ngIf="isWorkstreamsDataReceived" class="btn btn-default" (click)="addWorkstream()">Add Workstream</button>
+        </div>
+      </div>
+    </div>
+  </div>

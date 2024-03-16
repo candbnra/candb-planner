@@ -1,0 +1,213 @@
+
+<div class="container-fluid">
+    <div class="container xd-container">
+      <h2>Edit Company</h2>
+      <div *ngIf="errorMessage" class="alert alert-danger">
+        {{ errorMessage }}
+      </div>
+      <form
+        (ngSubmit)="onSubmit(workstreamForm.value)"
+        #workstreamForm="ngForm"
+        class="form-horizontal"
+      >
+        <div class="form-group" hidden="true">
+          <input
+            type="text"
+            hidden="true"
+            class="form-control"
+            id="id"
+            [(ngModel)]="workstream.id"
+            name="id"
+          />
+        </div>
+  <!--   CODE -->
+  <div
+  class="form-group has-feedback"
+  [class.has-success]="code.valid"
+  [class.has-error]="!code.valid"
+>
+  <label for="code" class="col-sm-2 control-label">Code</label>
+  <div class="col-sm-10">
+    <input
+      type="text"
+      class="form-control"
+      id="code"
+      [(ngModel)]="workstream.code"
+      name="code"
+      minlength="2"
+      required
+      #code="ngModel"
+    />
+    <span
+      class="glyphicon form-control-feedback"
+      [class.glyphicon-ok]="code.valid"
+      [class.glyphicon-remove]="!code.valid"
+      aria-hidden="true"
+    ></span>
+    <span
+      class="help-block"
+      *ngIf="code.dirty && code.hasError('required')"
+      >Code is required</span
+    >
+    <span
+      class="help-block"
+      *ngIf="code.dirty && code.hasError('minlength')"
+      >Code must be at least 2 characters long</span
+    >
+  </div>
+</div>
+        <!--   NAME -->
+        <div
+          class="form-group has-feedback"
+          [class.has-success]="name.valid"
+          [class.has-error]="!name.valid"
+          >
+          <label for="name" class="col-sm-2 control-label">Name</label>
+          <div class="col-sm-10">
+            <input
+              type="text"
+              class="form-control"
+              id="name"
+              [(ngModel)]="workstream.name"
+              minlength="2"
+              required
+              name="name"
+              #name="ngModel"
+            />
+            <span
+              class="glyphicon form-control-feedback"
+              [class.glyphicon-ok]="name.valid"
+              [class.glyphicon-remove]="!name.valid"
+              aria-hidden="true"
+            ></span>
+            <span
+              class="help-block"
+              *ngIf="name.dirty && name.hasError('required')"
+              >Name is required</span
+            >
+            <span
+              class="help-block"
+              *ngIf="name.dirty && name.hasError('minlength')"
+              >Name must be at least 2 characters long</span
+            >
+          </div>
+        </div>
+
+
+
+          <!--   STATUS -->
+      
+        <div
+          class="form-group has-feedback"
+          [class.has-success]="status.valid"
+          [class.has-error]="!status.valid"
+        >
+          <label for="status" class="col-sm-2 control-label">Status</label>
+          <div class="col-sm-10">
+            <input
+              type="text"
+              class="form-control"
+              id="status"
+              [(ngModel)]="workstream.status"
+              name="status"
+              required
+              #status="ngModel"
+            />
+            <span
+              class="glyphicon form-control-feedback"
+              [class.glyphicon-ok]="status.valid"
+              [class.glyphicon-remove]="!status.valid"
+              aria-hidden="true"
+            ></span>
+            <span
+              class="help-block"
+              *ngIf="status.dirty && status.hasError('required')"
+              >Code is required</span
+            >
+          </div>
+        </div>
+        
+
+          <!--   Start Date -->
+      
+          <div
+          class="form-group has-feedback"
+          [class.has-success]="startDate.valid"
+          [class.has-error]="!startDate.valid"
+        >
+          <label for="startDate" class="col-sm-2 control-label">Start Date</label>
+          <div class="col-sm-10">
+            <input
+              type="text"
+              class="form-control"
+              id="startDate"
+              [(ngModel)]="workstream.startDate"
+              name="startDate"
+              required
+              #startDate="ngModel"
+            />
+            <span
+              class="glyphicon form-control-feedback"
+              [class.glyphicon-ok]="startDate.valid"
+              [class.glyphicon-remove]="!startDate.valid"
+              aria-hidden="true"
+            ></span>
+            <span
+              class="help-block"
+              *ngIf="startDate.dirty && startDate.hasError('required')"
+              >Start Date is required</span
+            >
+          </div>
+        </div>
+
+
+
+          <!--   End Date -->
+      
+          <div
+          class="form-group has-feedback"
+          [class.has-success]="endDate.valid"
+          [class.has-error]="!endDate.valid"
+        >
+          <label for="endDate" class="col-sm-2 control-label">End Date</label>
+          <div class="col-sm-10">
+            <input
+              type="text"
+              class="form-control"
+              id="endDate"
+              [(ngModel)]="workstream.endDate"
+              name="endDate"
+              #endDate="ngModel"
+            />
+            <span
+              class="glyphicon form-control-feedback"
+              [class.glyphicon-ok]="endDate.valid"
+              [class.glyphicon-remove]="!endDate.valid"
+              aria-hidden="true"
+            ></span>
+            <span
+              class="help-block"
+              *ngIf="endDate.dirty && endDate.hasError('required')"
+              >End Date is required</span
+            >
+          </div>
+        </div>
+
+        <div class="form-group">
+          <div class="col-sm-offset-2 col-sm-10">
+            <button class="btn btn-default" (click)="gotoWorkstreamDetail(workstream)">
+              Back
+            </button>
+            <button
+              type="submit"
+              [disabled]="!workstreamForm.valid"
+              class="btn btn-default"
+            >
+              Update Company
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+  

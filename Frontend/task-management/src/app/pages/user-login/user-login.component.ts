@@ -72,7 +72,6 @@ export class UserLoginComponent implements OnInit {
       this.setUser();
       this.loginService.userLogin();
       console.log(user);
-      this.router.navigate(['site-list']);
     });
   }
 
@@ -82,6 +81,7 @@ export class UserLoginComponent implements OnInit {
       title: title,
       text: message,
     });
+   this.router.navigate(['home']);
   }
 
   public showErrorSnackbar(message: string) {

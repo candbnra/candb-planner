@@ -1,86 +1,90 @@
-import {Component, OnInit} from '@angular/core';
-import {Router} from '@angular/router';
-import { finalize } from 'rxjs/operators';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Site } from '../site';
 import { SiteService } from '../site-service';
-import { Observable } from 'rxjs';
-import { Workstream } from '../../workstreams/workstream';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { ThemePalette } from '@angular/material/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-site-list',
   templateUrl: './site-list.component.html',
   styleUrls: ['./site-list.component.css']
 })
+
+
 export class SiteListComponent implements OnInit {
+  color: ThemePalette = 'primary';
   errorMessage: string = '';
-  siteFilter: Site = new Site();
+  public site: Site = new Site();
   sites: Site[] = [];
-  listOfWorkstreams: Workstream[] = [];
-  islistOfWorkstreamsReceived: boolean = false;
-  listOfSitesWithName: Site[] = [];
   isSitesDataReceived: boolean = false;
 
-  constructor(private router: Router, private siteService: SiteService) {
-    
-  }
+  public searchForm!: FormGroup;
+
+
+  constructor(
+    private formBuilder: FormBuilder,
+    private siteService: SiteService,
+    private router: Router
+  ) { }
+  
+
   ngOnInit() {
-    console.log("here init ..")
-    this.siteService.getSites().pipe(
-      finalize(() => {
-        this.isSitesDataReceived = true;
-      })
-    ).subscribe(
-      sites => this.sites = sites,
-      error => this.errorMessage = error as any);
-    }
+    this.searchForm = this.formBuilder.group({
+      code: ['', []],
+      name: ['', []],
+      area: ['', []],
+      region: ['', []],
+      zone: ['', []],
+      etat: ['', []],
+      moeProjet: ['', []],
+    });
+  }
 
 
-    onSelect(site: Site) {
-      console.log("site-list:onSelect...");
-      this.router.navigate(['/sites', site.id]);
-    }
-    
+  onSelect(site: Site) {
+    this.router.navigate(['/sites', this.site.id]);
+  }
+
 
   addSite() {
     this.router.navigate(['/sites/add']);
   }
 
-  searchByName(name: string)
-  {
-      console.log('inside search by name starting with ' + (name));
-      if (name === '')
-      {
-      this.siteService.getSites()
-      .subscribe(
-            (sites) => {
-             this.sites = sites;
-            });
-      }
-      if (name !== '')
-      {
-      this.siteService.searchSites(name)
-      .subscribe(
-      (sites) => {
-
-       this.sites = sites;
-       console.log('this.sites ' + this.sites);
-
-       },
-       (error) =>
-       {
-         this.sites = [];
-       }
-      );
-
-      }
-  }
-
-  searchByParams(params: Site)
-  {
-    console.log("here ...");  
-    this.siteService.searchSitesByParams(params)
+  searchSites() {
+    console.log("searchSites() called");
+    console.log("searchForm:" + this.searchForm);
+    let searchParams = new Map<string, string>([]);
+    if (this.site.code !== undefined) {
+      searchParams.set("code", this.site.code);
+    }
+    if (this.site.name !== undefined) {
+      searchParams.set("name", this.site.name);
+    }
+    if (this.site.region !== undefined) {
+      searchParams.set("region", this.site.region);
+    }
+    if (this.site.zone !== undefined) {
+      searchParams.set("zone", this.site.zone);
+    }
+    if (this.site.area !== undefined) {
+      searchParams.set("area", this.site.area);
+    }
+    if (this.site.moeProjet !== undefined) {
+      searchParams.set("moeProjet", this.site.moeProjet);
+    }
+    if (this.site.state !== undefined) {
+      searchParams.set("state", this.site.state);
+    }
+    if (this.site.porteurProspection !== undefined) {
+      searchParams.set("porteurProspection", this.site.porteurProspection);
+    }
+    console.log("param as map=" + searchParams);
+    this.siteService.searchSites(searchParams)
       .subscribe(
         (sites) => {
+          console.log("siteService.searchSites replied");
           this.sites = sites;
         },
         (error) =>

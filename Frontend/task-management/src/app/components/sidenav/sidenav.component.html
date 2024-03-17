@@ -2,9 +2,9 @@
   <button mat-icon-button (click)="sidenav.toggle()" matTooltip="Menu">
     <mat-icon>menu</mat-icon>
   </button>
-  <span>5G Site Neufs</span>
+  <span h2>C&B Services</span>
   <span class="toolbar-item-spacer"></span>
-  <button mat-icon-button matTooltip="My Account" [matMenuTriggerFor]="userAccountMenu">
+  <button mat-icon-button matTooltip="Mon Compte" [matMenuTriggerFor]="userAccountMenu">
     <mat-icon>account_circle</mat-icon>
   </button>
   <mat-menu #userAccountMenu [overlapTrigger]="false" yPosition="below">
@@ -15,8 +15,7 @@
 </mat-toolbar>
 
 <mat-sidenav-container class="app-container">
-  <mat-sidenav #sidenav mode="side" [opened]="true" class="app-sidenav">
-
+  <mat-sidenav #sidenav mode="side" [opened]="false" class="app-sidenav">
     <div class="scrollwrap scrollwrap_delayed">
       <ul class="sidenav-nav">
         <li class="sidenav-nav-item" *ngFor="let data of navBar | async">

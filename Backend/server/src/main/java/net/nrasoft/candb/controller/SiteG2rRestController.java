@@ -50,7 +50,7 @@ public class SiteG2rRestController{
 	@GetMapping("/sites_g2r/searchByParams")
 	public Collection<SiteG2r> findByParams( @RequestParam(required = false) String code, @RequestParam(required = false) String name,
 			 @RequestParam(required = false) String region, @RequestParam(required = false) String zone, @RequestParam(required = false) String area,
-			 @RequestParam(required = false) String moeProjet, @RequestParam(required = false) String porteurProspection) throws DataAccessException {
+			 @RequestParam(required = false) String moeProjet, @RequestParam(required = false) String porteurProspection,@RequestParam(required = false) String state) throws DataAccessException {
 		Map<String,String> params = new HashMap<String,String>();
 		if (!StringUtils.isEmpty(code)) {
 			params.put("code", "%" + code + "%");
@@ -72,6 +72,9 @@ public class SiteG2rRestController{
 		}
 		if (!StringUtils.isEmpty(porteurProspection)) {
 			params.put("porteurProspection", "%" + porteurProspection + "%" );
+		}
+		if (!StringUtils.isEmpty(state)) {
+			params.put("state", "%" + state + "%" );
 		}
 		return siteG2rRepository.findByParams(params);
 	}

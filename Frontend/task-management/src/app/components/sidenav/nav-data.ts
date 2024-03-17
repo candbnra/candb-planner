@@ -28,11 +28,9 @@ export const afterLoginData: INavbarData[] = [
   {
     routeLink: '/sites',
     label: 'Sites 5G',
+  }, {
+    routeLink: '/add-task',
+    icon: 'add_task',
+    label: 'Add New Task',
   },
-  // {
-  //   routeLink: '/add-task',
-  //   icon: 'add_task',
-  //   label: 'Add New Task',
-  // },
-
 ];

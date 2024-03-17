@@ -4,6 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { catchError } from 'rxjs/operators';
 import { Site } from './site';
 import { HandleError, HttpErrorHandler } from '../error.service';
+import { FormGroup } from '@angular/forms';
 
 
 @Injectable()
@@ -43,49 +44,14 @@ export class SiteService {
     return this.http
       .delete<Site>(this.entityUrl + '/' + siteId);
   }
-  searchSites(name: string): Observable<Site[]> {
-    let url = this.entityUrl + '/searchByName';
-    console.log("URL: "+ url);
-    if (name !== undefined) {
-      url += '?name=' + name;
-    }
-    console.log("searchSites by name=");
-    console.log(url);
-    return this.http
-      .get<Site[]>(url);
-  }
 
-  searchSitesByParams(filterParams: Site): Observable<Site[]> {
-    console.log("searchSitesByParams ...");
-    console.log(filterParams);
+
+  searchSites(searchParams: Map<string, string>): Observable<Site[]> {
+    console.log("siteService.searchSites ...");
+    console.log(searchParams);
     let url = this.entityUrl + '/searchByParams';
-    let filterParamsAsMap = new Map<string, string>([]);
-    if (filterParams.code !== undefined) {
-      filterParamsAsMap.set("code", filterParams.code);
-    }
-    if (filterParams.name !== undefined) {
-      filterParamsAsMap.set("name", filterParams.name);
-    }
-    if (filterParams.region !== undefined) {
-      filterParamsAsMap.set("region", filterParams.region);
-    }
-    if (filterParams.zone !== undefined) {
-      filterParamsAsMap.set("zone", filterParams.zone);
-    }
-    if (filterParams.area !== undefined) {
-      filterParamsAsMap.set("area", filterParams.area);
-    }
-    if (filterParams.moeProjet !== undefined) {
-      filterParamsAsMap.set("moeProjet", filterParams.moeProjet);
-    }
-    if (filterParams.porteurProspection !== undefined) {
-      filterParamsAsMap.set("porteurProspection", filterParams.porteurProspection);
-    }
-    console.log("param as map=" + filterParams);
-
     let flag = false;
-    let urlParams = ""; 
-    for (let entry of filterParamsAsMap.entries()) {
+    for (let entry of searchParams.entries()) {
       if (flag == false) {
         console.log("here flag : " + flag);
         flag = true;

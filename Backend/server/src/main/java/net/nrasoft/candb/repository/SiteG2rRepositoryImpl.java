@@ -70,6 +70,7 @@ public class SiteG2rRepositoryImpl implements SiteG2rRepository {
 				put("region", "region");
 				put("zone", "zone");
 				put("area", "area");
+				put("state", "state");
 				put("moeProjet", "moe_projet");
 				put("porteurProspection", "porteur_prospection");
 
@@ -85,10 +86,13 @@ public class SiteG2rRepositoryImpl implements SiteG2rRepository {
 			}
 			whereClause = whereClause + " " + mapping.get(key) + " like :" + key;
 		}
+		if (whereClause.trim().length() != 0) {
+			whereClause = "WHERE " + whereClause;
+		}
 		String query = "SELECT id, code, name, zone, area, region, state, porteur_prospection, bailleur, "
 				+ "programme, projet, moe_projet, agence_moe, " + "equipe_planif_dsor, cdp_planif_dsor, "
 				+ "equipe_patrimoine_region, acteur_patrimoine_region, rdp_region, equipe_resp_site, resp_site, inge_radio, eb"
-				+ " FROM t_site_g2r WHERE " + whereClause;
+				+ " FROM t_site_g2r " + whereClause;
 		System.out.println(query);
 
 		List<SiteG2r> sitesG2r = this.namedParameterJdbcTemplate.query(query, params,

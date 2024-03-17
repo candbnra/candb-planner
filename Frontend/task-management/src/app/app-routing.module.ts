@@ -10,7 +10,7 @@ import { UserAuthGuard } from './services/guard/user-auth.guard';
 import { SiteListComponent } from './sites/site-list/site-list.component';
 
 const routes: Routes = [
-  { path: '', component: SiteListComponent },
+  { path: '', component: HomeComponent },
   { path: 'home', component: HomeComponent, canActivate: [] },
   { path: 'login', component: UserLoginComponent, canActivate: [] },
   { path: 'register', component: UserRegisterComponent, canActivate: [] },

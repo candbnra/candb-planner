@@ -1,7 +1,7 @@
 
 <div class="container-fluid">
   <div class="container xd-container">
-    <h2>Informations Site</h2>
+    <h2>Informations</h2>
     <div class="table-responsive">
       <table class="table table-responsive">
         <thead>
@@ -18,7 +18,7 @@
           <tr>
             <td>{{ site.name }}</td>
             <td>{{ site.code }}</td>
-            <td>{{ site.status }}</td>
+            <td>{{ site.state }}</td>
             <td>{{ site.area }}</td>
             <td>{{ site.region }}</td>
             <td>{{ site.zone }}</td>
@@ -26,10 +26,9 @@
         </tbody>
       </table>
 
-      <table class="table table-striped">
+      <table class="table table-responsive">
         <thead>
           <tr>
-            <th>Bailleur</th>
             <th>Porteur Prospection</th>
             <th>MOE Projet</th>
             <th>Equipe Resp Site</th>
@@ -38,7 +37,6 @@
         </thead>
         <tbody>
           <tr>
-            <td>{{ site.bailleur }}</td>
             <td>{{ site.porteurProspection }}</td>
             <td>{{ site.moeProjet }}</td>
             <td>{{ site.equipeRespSite }}</td>
@@ -47,19 +45,16 @@
         </tbody>
       </table>
       <button class="btn btn-default" (click)="gotoSitesList()">Back</button>
-      <button class="btn btn-default" (click)="editSite()">Edit Site</button>
     </div>
       <br />
-      <br />
-      <br />
-      <h2>Workstreams</h2>
+      <h1>Jalons</h1>
       <div  *ngIf="!workstreams">No workstreams for G2r Code="{{site.code}}"</div>
       <div class="table-responsive" id="workstreamsTable"  *ngIf="workstreams">
         <table class="table table-striped">
           <thead>
             <tr>
-              <th>Activite</th>
-              <th>Status</th>
+              <th>Activité</th>
+              <th>Statut</th>
               <th>Date de soumission</th>
               <th>Date de réalisation</th>
               <th>Equipe en charge</th>

@@ -8,7 +8,7 @@ export class Site {
     region: string = '';
     zone: string = '';
     area: string = '';
-    status: string = '';
+    state: string = '';
 
     porteurProspection: string = '';
 	bailleur: string = '';

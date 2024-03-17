@@ -1,3 +1,4 @@
+
 package net.nrasoft.candb.repository;
 
 import java.util.ArrayList;
@@ -39,7 +40,7 @@ public class SiteG2rRepositoryImpl implements SiteG2rRepository {
 	@Autowired
 	public SiteG2rRepositoryImpl() {
 		this.dataSource = DataSourceUtils.getDataSource();
-		this.insertG2r = new SimpleJdbcInsert(dataSource).withTableName("t_site_g2r").usingGeneratedKeyColumns("id");
+//		this.insertG2r = new SimpleJdbcInsert(dataSource).withTableName("t_site_g2r").usingGeneratedKeyColumns("id");
 		this.namedParameterJdbcTemplate = new NamedParameterJdbcTemplate(dataSource);
 		this.workstreamRepository = new WorkstreamRepositoryImpl();
 

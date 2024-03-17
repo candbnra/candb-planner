@@ -18,9 +18,9 @@ import net.nrasoft.candb.repository.SiteG2rRepository;
 
 public class SitesG2rDataFeeder {
 
-	public static void main(String[] args) throws DataAccessException, IOException, ParseException {
-		new SitesG2rDataFeeder().loadSitesG2rFromFile();
-	}
+//	public static void main(String[] args) throws DataAccessException, IOException, ParseException {
+//		new SitesG2rDataFeeder().loadSitesG2rFromFile();
+//	}
 	
 	public void loadSitesG2rFromFile() throws IOException, ParseException, DataAccessException {
 		BufferedReader bReader = new BufferedReader(new InputStreamReader(

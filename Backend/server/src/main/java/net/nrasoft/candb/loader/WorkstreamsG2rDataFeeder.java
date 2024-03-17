@@ -23,9 +23,9 @@ import net.nrasoft.candb.repository.WorkstreamRepository;
 
 public class WorkstreamsG2rDataFeeder {
 	
-	public static void main(String[] args) throws DataAccessException, IOException, ParseException {
-		new WorkstreamsG2rDataFeeder().loadWorkstreamsFromFile();
-	}
+//	public static void main(String[] args) throws DataAccessException, IOException, ParseException {
+//		new WorkstreamsG2rDataFeeder().loadWorkstreamsFromFile();
+//	}
 
 	public void loadWorkstreamsFromFile() throws IOException, ParseException, DataAccessException {
 		BufferedReader bReader = new BufferedReader(new InputStreamReader(

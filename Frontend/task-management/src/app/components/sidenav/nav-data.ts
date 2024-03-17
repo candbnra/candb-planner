@@ -21,9 +21,13 @@ export const beforeLoginData: INavbarData[] = [
 
 export const afterLoginData: INavbarData[] = [
   {
-    routeLink: '/site-list',
+    routeLink: '/home',
     icon: 'home',
-    label: 'Sites',
+    label: 'Accueil',
+  },
+  {
+    routeLink: '/sites',
+    label: 'Sites 5G',
   },
   // {
   //   routeLink: '/add-task',

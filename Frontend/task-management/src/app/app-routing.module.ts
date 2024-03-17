@@ -11,11 +11,12 @@ import { SiteListComponent } from './sites/site-list/site-list.component';
 
 const routes: Routes = [
   { path: '', component: SiteListComponent },
-  { path: 'login', component: UserLoginComponent, canActivate: [AuthGuard] },
-  { path: 'register', component: UserRegisterComponent, canActivate: [AuthGuard] },
-  { path: 'dashboard', component: DashboardComponent, canActivate: [UserAuthGuard] },
-  { path: "add-task", component: AddTaskComponent, canActivate: [UserAuthGuard] },
-  { path: "update-task/:id", component: AddTaskComponent, canActivate: [UserAuthGuard] },
+  { path: 'home', component: HomeComponent, canActivate: [] },
+  { path: 'login', component: UserLoginComponent, canActivate: [] },
+  { path: 'register', component: UserRegisterComponent, canActivate: [] },
+  { path: 'dashboard', component: DashboardComponent, canActivate: [] },
+  { path: "add-task", component: AddTaskComponent, canActivate: [] },
+  { path: "update-task/:id", component: AddTaskComponent, canActivate: [] },
   { path: 'sites', component: SiteListComponent },
 
 ];

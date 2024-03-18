@@ -40,11 +40,13 @@ export class SiteListComponent implements OnInit {
       etat: ['', []],
       moeProjet: ['', []],
     });
+    this.searchSites();
   }
 
 
   onSelect(site: Site) {
-    this.router.navigate(['/sites', this.site.id]);
+    console.log("onSelect() : "+  site.id)
+    this.router.navigate(['/sites', site.id]);
   }
 
 
@@ -80,11 +82,9 @@ export class SiteListComponent implements OnInit {
     if (this.site.porteurProspection !== undefined) {
       searchParams.set("porteurProspection", this.site.porteurProspection);
     }
-    console.log("param as map=" + searchParams);
     this.siteService.searchSites(searchParams)
       .subscribe(
         (sites) => {
-          console.log("siteService.searchSites replied");
           this.sites = sites;
         },
         (error) =>

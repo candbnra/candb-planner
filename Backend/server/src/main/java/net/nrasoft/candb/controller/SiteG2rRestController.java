@@ -51,6 +51,7 @@ public class SiteG2rRestController{
 	public Collection<SiteG2r> findByParams( @RequestParam(required = false) String code, @RequestParam(required = false) String name,
 			 @RequestParam(required = false) String region, @RequestParam(required = false) String zone, @RequestParam(required = false) String area,
 			 @RequestParam(required = false) String moeProjet, @RequestParam(required = false) String porteurProspection,@RequestParam(required = false) String state) throws DataAccessException {
+		System.out.println("findByParams(...) called");
 		Map<String,String> params = new HashMap<String,String>();
 		if (!StringUtils.isEmpty(code)) {
 			params.put("code", "%" + code + "%");
@@ -89,6 +90,7 @@ public class SiteG2rRestController{
 	// get site by id rest API
 	@GetMapping("/sites_g2r/{id}")
 	public ResponseEntity<SiteG2r> getSiteById(@PathVariable Long id) {
+		System.out.println("getSiteById("+id + ") called");
 		SiteG2r site = siteG2rRepository.findById(id);
 		if (site == null) {
 				throw new ResourceNotFoundException("Site not exist with id :" + id);

@@ -1,55 +1,27 @@
-
-<div class="container-fluid">
-  <div class="container xd-container">
-    <h2>Informations</h2>
-    <div class="table-responsive">
-      <table class="table table-responsive">
-        <thead>
-          <tr>
-            <th>Nom du site</th>
-            <th>Code G2R</th>
-            <th>Etat</th>
-            <th>Plaque de déploiement</th>
-            <th>Région</th>
-            <th>Zone</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>{{ site.name }}</td>
-            <td>{{ site.code }}</td>
-            <td>{{ site.state }}</td>
-            <td>{{ site.area }}</td>
-            <td>{{ site.region }}</td>
-            <td>{{ site.zone }}</td>
-          </tr>
-        </tbody>
-      </table>
-
-      <table class="table table-responsive">
-        <thead>
-          <tr>
-            <th>Porteur Prospection</th>
-            <th>MOE Projet</th>
-            <th>Equipe Resp Site</th>
-            <th>Resp Site</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>{{ site.porteurProspection }}</td>
-            <td>{{ site.moeProjet }}</td>
-            <td>{{ site.equipeRespSite }}</td>
-            <td>{{ site.respSite }}</td>
-          </tr>
-        </tbody>
-      </table>
-      <button class="btn btn-default" (click)="gotoSitesList()">Back</button>
+<div class="container mt-5">
+  <div class="row">
+    <div class="card">
+      <div class="card-header" style="background-color:darkblue; color: white;">Informations du site</div>
+      <div class="card-body">
+        <b>Nom du site : </b>{{site.name}}
+        <span STYLE="padding:0 0 0 40px;"> <b>Code G2R: </b>{{site.code}}</span>
+        <span STYLE="padding:0 0 0 40px;"> <b>Region : </b>{{site.region}}</span>
+        <span STYLE="padding:0 0 0 40px;"> <b>Plaque de déploiement: </b>{{site.area}}</span>
+        <span STYLE="padding:0 0 0 40px;"> <b>Zone : </b>{{site.zone}}</span>
+        <br><br>
+        <b>MOE Projet: </b>{{site.moeProjet}}
+        <br><br><br>
+        <div class="container">
+          <div class="retour-list">
+            <button type="submit" class="mat-button btn btn-primary" color="primary"
+              (click)="gotoSitesList()">Retour</button>
+          </div>
+        </div>
+      </div>
     </div>
-      <br />
-      <h1>Jalons</h1>
-      <div  *ngIf="!workstreams">No workstreams for G2r Code="{{site.code}}"</div>
-      <div class="table-responsive" id="workstreamsTable"  *ngIf="workstreams">
+    <div class="card">
+      <div class="card-header" style="background-color:darkblue; color: white;">Jalons</div>
+      <div class="card-body">
         <table class="table table-striped">
           <thead>
             <tr>
@@ -58,9 +30,9 @@
               <th>Date de soumission</th>
               <th>Date de réalisation</th>
               <th>Equipe en charge</th>
-
             </tr>
-          </thead> 
+          </thead>
+
           <tbody>
             <tr *ngFor="let workstream of workstreams">
               <td>{{ workstream.nomActivite }}</td>
@@ -68,11 +40,10 @@
               <td>{{ workstream.startDate }}</td>
               <td>{{ workstream.endDate }}</td>
               <td>{{ workstream.respTeam }}</td>
-
             </tr>
           </tbody>
         </table>
       </div>
-    
+    </div>
   </div>
 </div>

@@ -2,128 +2,53 @@
   <div class="row">
     <div class="col offset-mx-3">
       <div class="card">
-        <div class="card-header"> Recherche de site 5G </div>
+        <div class="card-header"  style="background-color:darkblue; color: white;"> Recherche de site 5G </div>
         <div class="card-body">
           <div class="row">
             <form [formGroup]="searchForm" (ngSubmit)="searchSites()">
               <div class="row control-group">
-                    <mat-form-field appearance="outline">
-                      <mat-label>Nom du site</mat-label>
-                      <input
-                        matInput
-                        formControlName="name"
-                        [(ngModel)]="site.name"
-                        name="name"
-                        placeholder="name"
-                      />
-                      <mat-icon matSuffix>person</mat-icon>
-                    </mat-form-field>
-                    <mat-form-field appearance="outline">
-                      <mat-label>Code G2R</mat-label>
-                      <input
-                        matInput
-                        formControlName="code"
-                        [(ngModel)]="site.code"
-                        name="code"
-                        placeholder="code"
-                      />
-                      <mat-icon matSuffix>person</mat-icon>
-                    </mat-form-field>
-                    <mat-form-field appearance="outline">
-                      <mat-label>Etat</mat-label>
-                      <input
-                        matInput
-                        formControlName="state"
-                        [(ngModel)]="site.state"
-                        name="state"
-                        placeholder="state"
-                      />
-                      <mat-icon matSuffix>person</mat-icon>
-                    </mat-form-field>
-                    <mat-form-field appearance="outline">
-                      <mat-label>Plaque de déploiement</mat-label>
-                      <input
-                        matInput
-                        formControlName="area"
-                        [(ngModel)]="site.area"
-                        name="area"
-                        placeholder="area"
-                      />
-                      <mat-icon matSuffix>person</mat-icon>
-                    </mat-form-field>
-                    <mat-form-field appearance="outline">
-                      <mat-label>region</mat-label>
-                      <input
-                        matInput
-                        formControlName="region"
-                        [(ngModel)]="site.region"
-                        name="region"
-                        placeholder="region"
-                      />
-                      <mat-icon matSuffix>person</mat-icon>
-                    </mat-form-field>
-                    <mat-form-field appearance="outline">
-                      <mat-label>MOE Projet</mat-label>
-                      <input
-                        matInput
-                        formControlName="moeProjet"
-                        [(ngModel)]="site.moeProjet"
-                        name="moeProjet"
-                        placeholder="moeProjet"
-                      />
-                      <mat-icon matSuffix>person</mat-icon>
-                    </mat-form-field>
+                <mat-form-field appearance="outline">
+                  <mat-label>Nom du site</mat-label>
+                  <input matInput formControlName="name" [(ngModel)]="site.name" name="name"
+                    placeholder="Nom du site" />
+                  <mat-icon matSuffix>person</mat-icon>
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                  <mat-label>Code G2R</mat-label>
+                  <input matInput formControlName="code" [(ngModel)]="site.code" name="code" placeholder="Code G2R" />
+                  <mat-icon matSuffix>person</mat-icon>
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                  <mat-label>Etat</mat-label>
+                  <input matInput formControlName="state" [(ngModel)]="site.state" name="state" placeholder="Etat" />
+                  <mat-icon matSuffix>person</mat-icon>
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                  <mat-label>Plaque de déploiement</mat-label>
+                  <input matInput formControlName="area" [(ngModel)]="site.area" name="area"
+                    placeholder="Plaque de déploiement" />
+                  <mat-icon matSuffix>person</mat-icon>
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                  <mat-label>Région</mat-label>
+                  <input matInput formControlName="region" [(ngModel)]="site.region" name="region"
+                    placeholder="Région" />
+                  <mat-icon matSuffix>person</mat-icon>
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                  <mat-label>MOE Projet</mat-label>
+                  <input matInput formControlName="moeProjet" [(ngModel)]="site.moeProjet" name="moeProjet"
+                    placeholder="MOE Projet" />
+                  <mat-icon matSuffix>person</mat-icon>
+                </mat-form-field>
               </div>
-              <!--div class="row control-group">
-                <label class="col-sm-2 control-label">Code G2R</label>
-                <div class="col-sm-3">
-                  <input class="form-control" size="10" maxlength="20" id="code" name="code"
-                    [(ngModel)]="searchForm.code" value="" />
-                  <span class="help-inline"></span>
-                </div>
-                <label class="col-sm-2 control-label">Nom du site</label>
-                <div class="col-sm-3">
-                  <input class="form-control" size="10" maxlength="20" id="name" name="name"
-                    [(ngModel)]="searchForm.name" value="" />
-                  <span class="help-inline"></span>
-                </div>
-              </div>
-              <br />
-              <div class="row control-group">
-                <label class="col-sm-2 control-label">Plaque de déploiement</label>
-                <div class="col-sm-3">
-                  <input class="form-control" size="10" maxlength="20" id="area" name="area"
-                    [(ngModel)]="searchForm.area" value="" />
-                  <span class="help-inline"></span>
-                </div> <label class="col-sm-2 control-label">Région</label>
-                <div class="col-sm-3">
-                  <input class="form-control" size="10" maxlength="20" id="region" name="region"
-                    [(ngModel)]="searchForm.region" value="" />
-                  <span class="help-inline"></span>
-                </div>
-              </div>
-              <br />
-              <div class="row control-group">
-                <label class="col-sm-2 control-label">Zone</label>
-                <div class="col-sm-3">
-                  <input class="form-control" size="10" maxlength="20" id="zone" name="zone"
-                    [(ngModel)]="searchForm.zone" value="" />
-                  <span class="help-inline"></span>
-                </div>
-                <label class="col-sm-2 control-label">Etat</label>
-                <div class="col-sm-3">
-                  <input class="form-control" size="10" maxlength="20" id="etat" name="etat"
-                    [(ngModel)]="searchForm.state" value="" />
-                  <span class="help-inline"></span>
-                </div>
-              </div-->
               <br>
               <!-- Submit Button -->
               <div class="container">
-                  <div class="col">
-                    <button type="submit" class="btn btn-secondary btn-sm" color="primary"
-                      (click)="searchSites()">Recherche</button>
-                  </div>
+                <div class="col">
+                  <button type="submit" class="mat-button btn btn-primary" color="primary"
+                    (click)="searchSites()">Recherche</button>
+                </div>
               </div>
             </form>
           </div>
@@ -136,7 +61,7 @@
   <div class="row">
     <div class="col offset-mx-3">
       <div class="card">
-        <div class="card-header">Résultat</div>
+        <div class="card-header" style="background-color:darkblue; color: white;">Résultat</div>
         <div class="card-body">
           <div *ngIf="!sites">Aucun site trouvé"</div>
           <div class="table-responsive" id="sitesTable" *ngIf="sites.length > 0">
@@ -151,7 +76,6 @@
                   <th>Plaque de déploiement</th>
                 </tr>
               </thead>
-
               <tbody>
                 <tr *ngFor="let site of sites">
                   <td>{{ site.code }}</td>
